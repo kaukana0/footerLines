@@ -32,26 +32,33 @@ template.innerHTML += `<style>
 
 class MyElement extends HTMLElement {
 
-	#_shadow
-
 	#$(elementId) {
-		return this.#_shadow.getElementById(elementId)
+		return this.shadowRoot.getElementById(elementId)
 	}
 
 	constructor() {
 		super()
-		this.#_shadow = this.attachShadow({ mode: 'open' })
-		this.#_shadow.appendChild(template.content.cloneNode(true))
-	}
-
-	connectedCallback() {
-        this.#$("footnote").innerText = this.getAttribute('footnote');
-        this.#$("footer").innerText = this.getAttribute('footer');
+		this.attachShadow({ mode: 'open' })
+		this.shadowRoot.appendChild(template.content.cloneNode(true))
 	}
 
 	static get observedAttributes() {
 		return ['footnote', 'footer'];
 	}
+
+	attributeChangedCallback(name, oldVal, newVal) {
+		if (oldVal === newVal) { return }
+		if (name === 'footnote') { this.footnote = newVal }
+		if (name === 'footer') { this.footer = newVal }
+	}
+
+	connectedCallback() {
+		this.footnote = this.getAttribute('footnote');
+		this.footer = this.getAttribute('footer');
+	}
+
+	set footnote(v) { this.#$("footnote").innerText = v; }
+	set footer(v) { this.#$("footer").innerText = v; }
 }
 
 window.customElements.define('footer-lines', MyElement)
