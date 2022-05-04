@@ -30,7 +30,7 @@ template.innerHTML += `<style>
 </style>`
 
 
-class MyElement extends HTMLElement {
+class Element extends HTMLElement {
 
 	#$(elementId) {
 		return this.shadowRoot.getElementById(elementId)
@@ -61,4 +61,4 @@ class MyElement extends HTMLElement {
 	set footer(v) { this.#$("footer").innerText = v; }
 }
 
-window.customElements.define('footer-lines', MyElement)
+window.customElements.define('footer-lines', Element)
