@@ -1,0 +1,15 @@
+#footnote {
+    margin-top: 0.1em;
+    font-size: 1.2em;
+}
+
+#footerText{
+	margin-top: 0.5em;
+	font-size: 1.2em;
+}
+
+#footerLink {
+	margin-top: 0.5em;
+    font-size: 1.2em;
+    color: #0d6efd;
+}
