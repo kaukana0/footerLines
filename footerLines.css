@@ -1,14 +1,20 @@
 .footnoteText {
-	font-size: 1.2em;
+    color: #515560;
 }
 
 .footnoteTextBlue {
-    font-size: 1.2em;
-    color: #0d6efd;
+    color: #0e47cb;
+}
+
+.footnoteTextBlue:hover{
+    color:#082b7a;
+} 
+
+.footnoteTextBlue:visited {
+    color: #510dcd;
 }
 
 .footnoteTextMargin {
     margin-top: 0.5em;
-    font-size: 1.2em;
     line-height: 1.2em;
 }
